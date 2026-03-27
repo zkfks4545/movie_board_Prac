@@ -13,8 +13,6 @@ public class ReviewDAO {
 
     public static final ReviewDAO RDAO = new ReviewDAO();
 
-    private static ArrayList<Object> reviews;
-
     private ReviewDAO() {
     }
 
@@ -28,7 +26,7 @@ public class ReviewDAO {
             conn = DBManager.connect();
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
-            reviews = new ArrayList<>();
+            ArrayList<Object> reviews = new ArrayList<>();
             while (rs.next()) {
                 int no = rs.getInt("r_no");
                 String title = rs.getString("r_title");
