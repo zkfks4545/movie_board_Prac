@@ -14,6 +14,9 @@ public class ReviewC extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
+        //전체 조회
+        ReviewDAO.RDAO.showAllReview(request);
+
 
         AccountDAO.loginCheck(request);
         request.setAttribute("content", "jsp/review/review.jsp");
