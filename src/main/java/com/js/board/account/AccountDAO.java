@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 
 public class AccountDAO {
 
+    public static final AccountDAO ADAO =  new AccountDAO();
+
     public static boolean loginCheck(HttpServletRequest request) {
         AccountVO user = (AccountVO) request.getSession().
                 getAttribute("user");

@@ -32,6 +32,7 @@ public class ReviewDAO {
                 String title = rs.getString("r_title");
                 String txt = rs.getString("r_txt");
                 Date date = rs.getDate("r_date");
+
                 ReviewVo reviewVo = new ReviewVo();
                 reviewVo.setNo(no);
                 reviewVo.setTitle(title);
@@ -46,6 +47,37 @@ public class ReviewDAO {
         }finally {
             DBManager.close(conn, pstmt, rs);
         }
+
+    }
+
+    public void addReview(HttpServletRequest request) {
+        // 1. 값 or db
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        String sql = "insert into review_test values"
+        +"(review_test_seq.nextval,?,?,sysdate)";
+
+        try {
+            conn = DBManager.connect();
+            pstmt = conn.prepareStatement(sql);
+
+            request.setCharacterEncoding("UTF-8");
+
+            pstmt.setString(1, request.getParameter("title"));
+            pstmt.setString(2, request.getParameter("txt"));
+
+            if (pstmt.executeUpdate() == 1) {
+                System.out.println("add review success");
+            }
+
+        }catch (Exception e) {
+            e.printStackTrace();
+
+        }finally {
+            DBManager.close(conn, pstmt, null);
+        }
+
 
     }
 }
