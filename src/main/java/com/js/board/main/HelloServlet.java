@@ -12,7 +12,7 @@ public class HelloServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        AccountDAO.loginCheck(request);
+        AccountDAO.ADAO.loginCheck(request);
         request.setAttribute("content", "home.jsp");
         request.getRequestDispatcher("index.jsp").forward(request, response);
 

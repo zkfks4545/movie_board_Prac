@@ -1,4 +1,4 @@
-package com.js.board.m1;
+package com.js.board.review;
 
 import com.js.board.account.AccountDAO;
 
@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Menu1C", value = "/menu1")
-public class Menu1C extends HttpServlet {
+@WebServlet(name = "ReviewDeleteC", value = "/review-del")
+public class ReviewDeleteC extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        //삭제하는일
+        ReviewDAO.RDAO.delReview(request);
 
-        AccountDAO.ADAO.loginCheck(request);
-        request.setAttribute("content", "jsp/m1/menu1.jsp");
-        request.getRequestDispatcher("index.jsp").forward(request, response);
-
+        //어디로?
+        response.sendRedirect("review");
     }
 
     public void destroy() {

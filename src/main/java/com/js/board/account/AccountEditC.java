@@ -14,7 +14,7 @@ public class AccountEditC extends HttpServlet {
         // 수정하는곳으로 보내기
 
 
-        if (AccountDAO.loginCheck(request)){
+        if (AccountDAO.ADAO.loginCheck(request)){
             request.setAttribute("content", "jsp/account/edit.jsp");
         }else {
             request.setAttribute("content", "jsp/account/login.jsp");
@@ -26,8 +26,8 @@ public class AccountEditC extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // 수정 하는 일
 
-        if (AccountDAO.loginCheck(request)){
-            AccountDAO.editUser(request);
+        if (AccountDAO.ADAO.loginCheck(request)){
+            AccountDAO.ADAO.editUser(request);
 
         }
             // 어디로?

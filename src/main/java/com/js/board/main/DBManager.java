@@ -21,7 +21,7 @@ public class DBManager {
                 ps.close();
             }
             if(con != null){
-                con.close();
+//                con.close();
             }
 
         }catch (Exception e){

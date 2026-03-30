@@ -12,7 +12,7 @@ public class AccountDelC extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // 유저 탈퇴
-        AccountDAO.delUser(request);
+        AccountDAO.ADAO.delUser(request);
 
         //어디로?
         response.sendRedirect("main");
@@ -21,7 +21,7 @@ public class AccountDelC extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // 탈퇴 하는 일
-        boolean pwMatch = AccountDAO.delUser(request);
+        boolean pwMatch = AccountDAO.ADAO.delUser(request);
 
 //        (pwMatch == true)
         if(pwMatch){

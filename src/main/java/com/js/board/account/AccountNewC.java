@@ -23,7 +23,7 @@ public class AccountNewC extends HttpServlet {
 
         String id = request.getParameter("id");
 
-        boolean exist = AccountDAO.idCheck(id); // 👉 중요: request 말고 id 넘기기
+        boolean exist = AccountDAO.ADAO.idCheck(id); // 👉 중요: request 말고 id 넘기기
 
         if (exist) {
             request.setAttribute("msg", "이미 존재하는 ID");
@@ -33,7 +33,7 @@ public class AccountNewC extends HttpServlet {
             return;
         }
 
-        AccountDAO.newUser(request);
+        AccountDAO.ADAO.newUser(request);
 
         response.sendRedirect("user-login");
     }

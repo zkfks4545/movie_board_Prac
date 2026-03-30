@@ -15,7 +15,7 @@ public class NewAccountChkC extends HttpServlet {
 
         String id = request.getParameter("id");
 
-        boolean exist = AccountDAO.idCheck(id);
+        boolean exist = AccountDAO.ADAO.idCheck(id);
 
         response.setContentType("text/plain; charset=UTF-8");
 

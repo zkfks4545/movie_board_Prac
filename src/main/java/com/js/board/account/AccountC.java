@@ -13,7 +13,7 @@ public class AccountC extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         //로그아웃
 
-        AccountDAO.logout(request);
+        AccountDAO.ADAO.logout(request);
         //어디로?
 
         response.sendRedirect("main");
@@ -21,10 +21,10 @@ public class AccountC extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // 로그인 하는 일
-        AccountDAO.login(request);
+        AccountDAO.ADAO.login(request);
 
         // 어디로?
-        AccountDAO.loginCheck(request);
+        AccountDAO.ADAO.loginCheck(request);
         request.setAttribute("content", "home.jsp");
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }

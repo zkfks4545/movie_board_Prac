@@ -18,7 +18,7 @@ public class MovieC extends HttpServlet {
             //삭제하는일
             System.out.println("type");
             System.out.println("no");
-            AccountDAO.loginCheck(request);
+            AccountDAO.ADAO.loginCheck(request);
 
             MovieDAO.delMovie(request);
             System.out.println("deleted");
@@ -34,7 +34,7 @@ public class MovieC extends HttpServlet {
 
 //            MovieDAO.selectAllMovies(request);
 //            MovieDAO.paging(page, request); // ✅ page 변수 사용
-            AccountDAO.loginCheck(request);
+            AccountDAO.ADAO.loginCheck(request);
             MovieDAO.MDAO.selectAllMovies(request);
             MovieDAO.MDAO.paging(page, request);
 

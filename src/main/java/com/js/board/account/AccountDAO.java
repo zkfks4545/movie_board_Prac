@@ -12,7 +12,7 @@ public class AccountDAO {
 
     public static final AccountDAO ADAO =  new AccountDAO();
 
-    public static boolean loginCheck(HttpServletRequest request) {
+    public  boolean loginCheck(HttpServletRequest request) {
         AccountVO user = (AccountVO) request.getSession().
                 getAttribute("user");
         if (user == null) {
@@ -26,7 +26,7 @@ public class AccountDAO {
         }
     }
 
-    public static void login(HttpServletRequest request) {
+    public  void login(HttpServletRequest request) {
         // 1. 값 or db
         String id = request.getParameter("id");
         String pw = request.getParameter("pw");
@@ -78,7 +78,7 @@ public class AccountDAO {
         }
     }
 
-    public static void logout(HttpServletRequest request) {
+    public  void logout(HttpServletRequest request) {
         HttpSession session = request.getSession();
 //        session.invalidate();     // 모든 세션 초기화
         session.removeAttribute("user");  // user 세션 삭제
@@ -86,7 +86,7 @@ public class AccountDAO {
 
     }
 
-    public static boolean delUser(HttpServletRequest request) {
+    public  boolean delUser(HttpServletRequest request) {
         AccountVO user = (AccountVO) request.getSession().getAttribute("user");
 
         Connection con = null;
@@ -119,7 +119,7 @@ public class AccountDAO {
         return false;
     }
 
-    public static void editUser(HttpServletRequest request) {
+    public  void editUser(HttpServletRequest request) {
         AccountVO user = (AccountVO) request.getSession().getAttribute
                 ("user");
         Connection con = null;
@@ -158,7 +158,7 @@ public class AccountDAO {
         }
     }
 
-    public static void newUser(HttpServletRequest request) {
+    public  void newUser(HttpServletRequest request) {
         // 1. 값 or db
         String id = request.getParameter("id");
         String pw = request.getParameter("pw");
@@ -189,7 +189,7 @@ public class AccountDAO {
     }
 
 
-    public static boolean idCheck(String id) {
+    public  boolean idCheck(String id) {
 
         boolean exist = false;
 

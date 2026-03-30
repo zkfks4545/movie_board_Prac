@@ -13,7 +13,7 @@
                 Review Page <a href="review-add">[write]</a>
             </div>
             <c:forEach var="r" items="${reviews }">
-                <div class="review-row">
+                <div class="review-row" onclick="location.href='review-detail?no=${r.no}'">
                     <div>
                         <span>${r.title }</span>
                     </div>
@@ -22,6 +22,14 @@
             </c:forEach>
         </div>
     </div>
+
+<div>
+    <a href="review">[begin]</a>
+    <c:forEach var="i" begin="1" end="${totalPage}">
+        <a href="review?p=${i}">[${i}]</a>
+    </c:forEach>
+    <a href="review?p=${totalPage}">[end]</a>
+</div>
 
 </body>
 </html>
